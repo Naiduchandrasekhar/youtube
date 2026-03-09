@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+.fontSize14{
+    font-size: 14px;
+}
+
+/* Hide horizontal scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.video-container{
+    padding-bottom: 100px;
+}
