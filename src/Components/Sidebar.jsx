@@ -5,14 +5,12 @@ import subscribtionIcon from "../assets/images/subscribtion.png"
 import userIcon from "../assets/images/userIcon.png"
 import { sidebarText } from "../Utils/constants"
 
-const sidebar = () => {
+const SideBar = () => {
     const isMenuOpened = useSelector((store) => store?.app?.isMenuOpened)
 
      const selectedLanguage = useSelector((store) => store?.language?.selectedLanguage);
 
     const text = sidebarText[selectedLanguage] || sidebarText.en;
-    console.log(text);
-    
 
     return (
         <div className={`${isMenuOpened ? "p-5 w-60" : "p-3 w-30"} shadow-lg fontSize14`}>
@@ -72,4 +70,4 @@ const sidebar = () => {
     )
 }
 
-export default sidebar
+export default SideBar

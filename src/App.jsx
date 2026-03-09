@@ -1,8 +1,8 @@
 import './App.css'
 import Header from './Components/Header'
-import Sidebar from './Components/sidebar'
 import MainContainer from './Components/MainContainer'
 import { useSelector } from 'react-redux'
+import SideBar from './Components/sidebar';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
 
       {/* Main layout */}
       <div className="flex flex-row pt-24 h-full">
-        <Sidebar />
+        <SideBar />
 
         <div className="flex-1 h-full overflow-y-auto">
           <MainContainer />
