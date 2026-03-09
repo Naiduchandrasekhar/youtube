@@ -2,7 +2,7 @@ import './App.css'
 import Header from './Components/Header'
 import MainContainer from './Components/MainContainer'
 import { useSelector } from 'react-redux'
-import SideBar from './Components/sidebar';
+import SideBar from './Components/SideBar';
 
 function App() {
 
