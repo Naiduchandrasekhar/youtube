@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { YOUTUBE_MOST_POPULAR_API } from "../Utils/constants"
 import VideoCard from "./VideoCard"
+import Loader from "./Loader"
+import { Link } from "react-router-dom"
 
 const VideoContainer = () => {
 
@@ -11,8 +13,6 @@ const VideoContainer = () => {
 
   const fetchMostPopularVideos = async () => {
     if (loading) return; // Prevent multiple simultaneous fetches
-    setLoading(true);
-
     try {
       const response = await fetch(YOUTUBE_MOST_POPULAR_API);
 
@@ -32,16 +32,22 @@ const VideoContainer = () => {
   };
 
   useEffect(() => {
-    fetchMostPopularVideos(); // initial fetch
+    setLoading(true);
+    setTimeout(() => {
+      fetchMostPopularVideos();
+    }, 2000); // Simulate network delay
   }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        fetchMostPopularVideos();
+        setLoading(true);
+        setTimeout(() => {
+          fetchMostPopularVideos();
+        }, 2000); // Simulate network delay
       }
-    }, {root: null, rootMargin: "20px", threshold: 1 });
-    
+    }, { root: null, rootMargin: "20px", threshold: 1 });
+
     if (observorRef.current) {
       observer.observe(observorRef.current);
     }
@@ -49,18 +55,23 @@ const VideoContainer = () => {
     return () => observer.disconnect();
   }, [videos, loading]);
 
-  if (!videos.length) return <div className="flex justify-center items-center h-full">No videos available</div>
-
-
   return (
     <div className="video-container h-full p-3 flex-wrap gap-3 flex justify-between items-center">
       {videos.map((video, index) => (
-        <VideoCard key={video.id + index} video={video} />
+        <Link to={`/watch?v=${video.id}`}>
+          <VideoCard key={video.id + index} video={video} />
+        </Link>
       ))}
+
+      {/* Loader */}
+      {loading && (
+        <div className="w-full flex justify-center items-center py-6">
+          <Loader />
+        </div>
+      )}
+
       {/* Sentinel div at the bottom to trigger observer */}
       <div ref={observorRef} className="w-full h-1"></div>
-      
-      {loading && <p className="w-full flex justify-center items-center bg-blue-300">Loading more videos...</p>}
     </div>
   )
 }

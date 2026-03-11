@@ -4,6 +4,7 @@ import shortsIcon from "../assets/images/shortsIcon.jpg"
 import subscribtionIcon from "../assets/images/subscribtion.png"
 import userIcon from "../assets/images/userIcon.png"
 import { sidebarText } from "../Utils/constants"
+import { Link } from "react-router-dom"
 
 const SideBar = () => {
     const isMenuOpened = useSelector((store) => store?.app?.isMenuOpened)
@@ -33,10 +34,12 @@ const SideBar = () => {
         {isMenuOpened && <h1 className="font-bold py-1">{text.explore}</h1>}
 
         <ul className="p-2">
+          <Link to="/">
           <li className={`flex items-center ${isMenuOpened ? "flex-row py-1" : "flex-col py-3"}`}>
             <img src={homeIcon} alt="homeIcon" className="h-8 px-2" />
             {text.home}
           </li>
+          </Link>
 
           <li className={`flex items-center ${isMenuOpened ? "flex-row py-1" : "flex-col py-3"}`}>
             <img src={shortsIcon} alt="shortsIcon" className="h-8 px-2" />

@@ -1,12 +1,28 @@
 import './App.css'
 import Header from './Components/Header'
-import MainContainer from './Components/MainContainer'
 import { useSelector } from 'react-redux'
-import SideBar from './Components/SideBar';
+import Body from './Components/Body';
+import WatchPage from './Pages/WatchPage';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import MainContainer from './Components/MainContainer';
 
 function App() {
 
   const isDarkMode = useSelector((store) => store?.mode?.isDarkMode);
+
+  const appRouter = createBrowserRouter([{
+    path: "/",
+    element: <Body />,
+    children: [
+      {
+        path: "/",
+        element: <MainContainer />
+      },
+      {
+      path: "/watch",
+      element: <WatchPage />
+    }]
+  },])
 
   return (
     <div
@@ -18,13 +34,7 @@ function App() {
       <Header />
 
       {/* Main layout */}
-      <div className="flex flex-row pt-24 h-full">
-        <SideBar />
-
-        <div className="flex-1 h-full overflow-y-auto">
-          <MainContainer />
-        </div>
-      </div>
+     <RouterProvider router={appRouter} />
 
     </div>
   )

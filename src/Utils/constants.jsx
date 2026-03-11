@@ -100,4 +100,6 @@ export const sidebarText = {
 };
 
   const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
-  export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&key=${youtubeKey}`
+  export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${youtubeKey}`
+
+
