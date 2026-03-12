@@ -102,4 +102,19 @@ export const sidebarText = {
   const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
   export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${youtubeKey}`
 
+export const fetchMostPopularVideos = async () => {
+  try {
+    const response = await fetch(YOUTUBE_MOST_POPULAR_API);
 
+    if (!response.ok) {
+      console.error("Failed to fetch videos:", response.status, response.statusText);
+      return []; // return empty array on failure
+    }
+
+    const json = await response.json();
+    return json.items || [];
+  } catch (error) {
+    console.error("Error fetching YouTube videos:", error);
+    return [];
+  }
+};
