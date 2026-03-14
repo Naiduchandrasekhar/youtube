@@ -1,5 +1,5 @@
 import hamburgerMenu from "../assets/images/hamburgerMenu.png"
-import hamburgerMenuLight from "../assets/images/hamburgerMenuLight.png"
+import darkHamburgerMenu from "../assets/images/darkHamburgerMenu.png"
 import youtubeLogo from "../assets/images/youtubeLogo.jpg"
 import userIcon from "../assets/images/userIcon.png"
 import { useDispatch, useSelector } from "react-redux"
@@ -43,6 +43,8 @@ const Header = () => {
     try {
       if (data?.[1]) {
         setSearchResults(data[1]);
+        console.log("hjh");
+        
         dispatch(cacheResults({ [searchTerm]: data[1] }));
       }
     } catch (error) {
@@ -100,7 +102,7 @@ const Header = () => {
         }`}
     >
       <div className="flex items-center gap-3">
-        <img onClick={handleMenu} src={hamburgerMenu} className="h-9 cursor-pointer" />
+        <img onClick={handleMenu} src={isDarkMode ? darkHamburgerMenu: hamburgerMenu} className="h-9 cursor-pointer" />
         <img src={isDarkMode ? youtube_logo_dark : youtubeLogo} className="h-20 max-w-full" />
       </div>
 

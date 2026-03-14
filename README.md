@@ -1,8 +1,8 @@
-# 🎬 BumChick – YouTube Clone
+# 🎬 YouWatchTube – YouTube Clone
 
 🔗 **Live Demo:** https://bumchick.netlify.app/
 
-BumChick is a **YouTube-inspired front-end application** that replicates core YouTube functionalities such as browsing videos, searching content, and watching videos.
+YouWatchTube is a **YouTube-inspired front-end application** that replicates core YouTube functionalities such as browsing videos, searching content, and watching videos.
 
 The project focuses on building a **scalable React application** with optimized API calls, reusable UI components, and centralized state management using **Redux Toolkit**.
 

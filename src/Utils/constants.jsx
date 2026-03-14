@@ -46,7 +46,6 @@ export const videoTitleButtons = {
 export const sidebarText = {
   en: {
     you: "You",
-    history: "History",
     playlists: "Playlists",
     watchLater: "Watch Later",
     yourVideos: "Your Videos",
@@ -64,7 +63,6 @@ export const sidebarText = {
 
   hi: {
     you: "आप",
-    history: "इतिहास",
     playlists: "प्लेलिस्ट",
     watchLater: "बाद में देखें",
     yourVideos: "आपके वीडियो",
@@ -82,7 +80,6 @@ export const sidebarText = {
 
   te: {
     you: "మీరు",
-    history: "చరిత్ర",
     playlists: "ప్లేలిస్టులు",
     watchLater: "తరువాత చూడండి",
     yourVideos: "మీ వీడియోలు",
