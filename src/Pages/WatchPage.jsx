@@ -2,13 +2,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useSearchParams } from "react-router-dom";
 import VideoCard from "../Components/VideoCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchMostPopularVideos } from "../Utils/constants";
 import { setAllVideos } from "../Utils/allVideosSlice";
+import Loader from "../Components/Loader";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
   const videos = useSelector((store) => store?.allVideos?.videos) || [];
+  const [loading, setLoading] = useState(false)
 
   const [searchParam] = useSearchParams();
 
@@ -25,19 +27,32 @@ const WatchPage = () => {
     window.scrollTo(0, 0);
     loadVideos()
   }, []);
-  
-  
+
+  const videoId = searchParam.get("v");
+  useEffect(() => {
+    setLoading(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, [videoId]);
+
+  if (loading) return <Loader />
+
   return (
     <div className="flex w-full">
       <div className="flex flex-col w-screen">
         <iframe height="650" src={`https://www.youtube.com/embed/${searchParam.get("v")}?si=RUcM18UgPoeCM2PV`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen aria-controls="true"></iframe>
+        <div>
+          <h1 className="text-2xl font-bold my-2 px-3">9 Comments</h1>
+        </div>
       </div>
       <div className="">
         <h1 className="text-2xl font-bold mb-4 px-3">Related Videos</h1>
         <div className="flex flex-wrap gap-4 px-3 overflow-auto w-87.5">
           {videos?.map((video, index) => (
             <div key={video?.id + index}>
-              <Link to={`/watch?v=${video.id}`} >
+              <Link to={`/watch?v=${video.id}`} onClick={() => handleTopScroll()} >
                 <VideoCard video={video} />
               </Link>
             </div>

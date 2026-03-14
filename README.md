@@ -1,21 +1,178 @@
-<<<<<<< HEAD
-# youtube
-A **YouTube Clone** is a front-end web application that mimics YouTube’s core interface and features. It allows users to browse, search, and watch videos by integrating external APIs. The project focuses on responsive UI design, smooth video playback, and efficient API integration to deliver a user-friendly video browsing experience.
-=======
-# React + Vite
+# 🎬 BumChick – YouTube Clone
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 **Live Demo:** https://bumchick.netlify.app/
 
-Currently, two official plugins are available:
+BumChick is a **YouTube-inspired front-end application** that replicates core YouTube functionalities such as browsing videos, searching content, and watching videos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The project focuses on building a **scalable React application** with optimized API calls, reusable UI components, and centralized state management using **Redux Toolkit**.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 🚀 Features
 
-## Expanding the ESLint configuration
+### 🔍 Smart Search (Debouncing + Caching)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> master
+* Implemented **debounced search** to reduce unnecessary API calls.
+* Integrated **Redux Toolkit caching** to store previously searched queries.
+* Prevents duplicate API calls for the same search term.
+
+### 🎬 Watch Page
+
+* Dedicated **video watch page** similar to YouTube.
+* Dynamic routing using **React Router**.
+
+### 🧩 Reusable Components
+
+The project uses modular components for scalability:
+
+* `VideoCard`
+* `VideoContainer`
+* `Header`
+* `Sidebar`
+* `SearchSuggestions`
+* `WatchPage`
+
+### 📦 Redux Toolkit State Management
+
+Efficient centralized state using Redux Toolkit slices:
+
+* **searchSlice** → Search suggestion caching
+* **allVideosSlice** → Video list management
+* **appStore** → Global store configuration
+
+### ⚡ Performance Optimizations
+
+* Search **debouncing**
+* **Redux caching**
+* Efficient component re-rendering
+* Optimized API requests
+
+### 📱 Responsive Design
+
+Built with **Tailwind CSS** to support multiple screen sizes.
+
+---
+
+# 🛠 Tech Stack
+
+| Technology       | Usage                   |
+| ---------------- | ----------------------- |
+| React            | Frontend UI             |
+| Redux Toolkit    | Global State Management |
+| React Router     | Routing                 |
+| Tailwind CSS     | Styling                 |
+| YouTube Data API | Fetching video data     |
+| Netlify          | Deployment              |
+
+---
+
+# 🏗 Application Architecture
+
+The project follows a **component-driven architecture** with centralized state management.
+
+```
+                     YouTube API
+                          │
+                          │
+                     API Requests
+                          │
+                          ▼
+                  Utils / API Layer
+                   (constants.js)
+                          │
+                          │
+                   Redux Store
+          ┌──────────────────────────┐
+          │        appStore           │
+          │                           │
+          │  searchSlice              │
+          │  allVideosSlice           │
+          │                           │
+          └────────────┬─────────────┘
+                       │
+                       │ Global State
+                       ▼
+                React Components
+   ┌────────────────────────────────────┐
+   │                                    │
+   │ Header                             │
+   │   └─ Search Suggestions            │
+   │                                    │
+   │ Sidebar                            │
+   │                                    │
+   │ VideoContainer                     │
+   │   └─ VideoCard                     │
+   │                                    │
+   │ WatchPage                          │
+   │   └─ Video Player                  │
+   │                                    │
+   └────────────────────────────────────┘
+```
+
+---
+
+# 📂 Project Structure
+
+```
+src
+│
+├── components
+│   ├── Header.js
+│   ├── Sidebar.js
+│   ├── VideoCard.js
+│   ├── VideoContainer.js
+│   ├── WatchPage.js
+│   └── SearchSuggestions.js
+│
+├── utils
+│   ├── constants.js
+│   ├── searchSlice.js
+│   ├── allVideosSlice.js
+│   └── store.js
+│
+├── App.js
+└── index.js
+```
+
+---
+
+# 📸 Screenshots
+
+### Home Page
+![alt text](image.png)
+
+*Add screenshot here*
+
+### Search Suggestions
+![alt text](image-2.png)
+
+### Watch Page
+![alt text](image-1.png)
+
+---
+
+# 🎯 Key Learnings
+
+* Implementing **Redux Toolkit for scalable state management**
+* Building **reusable React components**
+* Implementing **debouncing and caching techniques**
+* Optimizing **API calls and rendering performance**
+* Structuring **large React projects**
+
+---
+
+# 🔮 Future Improvements
+
+* Add **video comments system**
+* Implement **related videos recommendations**
+* Add **user authentication**
+* Improve **UI animations and skeleton loaders**
+* Add **dark mode**
+
+---
+
+# 👨‍💻 Author
+
+**Chandra**
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.

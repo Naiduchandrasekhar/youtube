@@ -31,7 +31,7 @@ function App() {
     >
 
       {/* Fixed header */}
-      <Header />
+      {/* <Header /> */}
 
       {/* Main layout */}
      <RouterProvider router={appRouter} />
