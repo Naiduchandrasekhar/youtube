@@ -1,6 +1,6 @@
 # 🎬 YouWatchTube – YouTube Clone
 
-🔗 **Live Demo:** https://bumchick.netlify.app/
+🔗 **Live Demo:** https://youwatchtube.netlify.app/
 
 YouWatchTube is a **YouTube-inspired front-end application** that replicates core YouTube functionalities such as browsing videos, searching content, and watching videos.
 
