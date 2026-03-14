@@ -1,5 +1,5 @@
 import hamburgerMenu from "../assets/images/hamburgerMenu.png"
-import darkHamburgerMenu from "../assets/images/darkHamburgerMenu.png"
+import darkMenubar from "../assets/images/darkHamburgerMenu.png"
 import youtubeLogo from "../assets/images/youtubeLogo.jpg"
 import userIcon from "../assets/images/userIcon.png"
 import { useDispatch, useSelector } from "react-redux"
@@ -22,7 +22,6 @@ const Header = () => {
 
   const [searchTerm, setSearchTerm] = useState("")
   const [searchResults, setSearchResults] = useState([])
-  const [videoResults, setVideoResults] = useState([])
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handleMenu = () => {
@@ -102,7 +101,7 @@ const Header = () => {
         }`}
     >
       <div className="flex items-center gap-3">
-        <img onClick={handleMenu} src={isDarkMode ? darkHamburgerMenu: hamburgerMenu} className="h-9 cursor-pointer" />
+        <img onClick={handleMenu} src={isDarkMode ? darkMenubar: hamburgerMenu} className="h-9 cursor-pointer" />
         <img src={isDarkMode ? youtube_logo_dark : youtubeLogo} className="h-20 max-w-full" />
       </div>
 
