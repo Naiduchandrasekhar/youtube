@@ -1,5 +1,5 @@
 import hamburgerMenu from "../assets/images/hamburgerMenu.png"
-import darkMenubar from "../assets/images/darkHamburgermenu.png"
+import darkMenubar from "../assets/images/darkhamburgermenu.png"
 import youtubeLogo from "../assets/images/youtubeLogo.jpg"
 import userIcon from "../assets/images/userIcon.png"
 import { useDispatch, useSelector } from "react-redux"
