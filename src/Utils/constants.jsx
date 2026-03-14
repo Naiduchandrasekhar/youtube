@@ -1,3 +1,6 @@
+const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
+export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${youtubeKey}`
+
 export const videoTitleButtons = {
   en: [
     "All", "Telugu Cinema", "Music", "News", "Podcasts",
@@ -96,8 +99,167 @@ export const sidebarText = {
   }
 };
 
-  const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
-  export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${youtubeKey}`
+
+export const comments = [
+  {
+    id: "c1",
+    name: "Chandra",
+    comment: "This is amazing!",
+    likeCount: 23,
+    replies: [
+      {
+        id: "c1-r1",
+        name: "Akshya",
+        comment: "Totally agree with you!",
+        likeCount: 15,
+        replies: [
+          {
+            id: "c1-r1-r1",
+            name: "Rohit",
+            comment: "Interesting point!",
+            likeCount: 5,
+            replies: [
+              {
+                id: "c1-r1-r1-r1",
+                name: "Sneha",
+                comment: "Thanks for sharing!",
+                likeCount: 2,
+                replies: []
+              },
+              {
+                id: "c1-r1-r1-r2",
+                name: "Arjun",
+                comment: "I think this can be improved further.",
+                likeCount: 4,
+                replies: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "c1-r2",
+        name: "Priya",
+        comment: "I have a different opinion.",
+        likeCount: 7,
+        replies: [
+          {
+            id: "c1-r2-r1",
+            name: "Rahul",
+            comment: "Would love to hear your perspective.",
+            likeCount: 3,
+            replies: []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "c2",
+    name: "Vikram",
+    comment: "Looks good to me!",
+    likeCount: 10,
+    replies: [
+      {
+        id: "c2-r1",
+        name: "Neha",
+        comment: "Yes, implementation is clean.",
+        likeCount: 6,
+        replies: []
+      },
+      {
+        id: "c2-r2",
+        name: "Karan",
+        comment: "Maybe we can optimize it further.",
+        likeCount: 4,
+        replies: [
+          {
+            id: "c2-r2-r1",
+            name: "Vikram",
+            comment: "Good idea! Any suggestions?",
+            likeCount: 2,
+            replies: []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "c3",
+    name: "Anita",
+    comment: "Can someone explain this further?",
+    likeCount: 8,
+    replies: [
+      {
+        id: "c3-r1",
+        name: "Chandra",
+        comment: "Sure, here’s more detail...",
+        likeCount: 12,
+        replies: [
+          {
+            id: "c3-r1-r1",
+            name: "Akshya",
+            comment: "Thanks, that helped a lot!",
+            likeCount: 3,
+            replies: []
+          },
+          {
+            id: "c3-r1-r2",
+            name: "Meena",
+            comment: "Very helpful explanation.",
+            likeCount: 5,
+            replies: []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "c4",
+    name: "Rohit",
+    comment: "Not sure if this works.",
+    likeCount: 5,
+    replies: [
+      {
+        id: "c4-r1",
+        name: "Amit",
+        comment: "Why do you think so?",
+        likeCount: 2,
+        replies: []
+      }
+    ]
+  },
+  {
+    id: "c5",
+    name: "Suresh",
+    comment: "This reminds me of Reddit comments.",
+    likeCount: 9,
+    replies: [
+      {
+        id: "c5-r1",
+        name: "Divya",
+        comment: "Exactly what I thought!",
+        likeCount: 4,
+        replies: []
+      },
+      {
+        id: "c5-r2",
+        name: "Harish",
+        comment: "Nested comments are tricky to implement.",
+        likeCount: 6,
+        replies: [
+          {
+            id: "c5-r2-r1",
+            name: "Suresh",
+            comment: "True, recursion helps a lot.",
+            likeCount: 2,
+            replies: []
+          }
+        ]
+      }
+    ]
+  }
+];
 
 export const fetchMostPopularVideos = async () => {
   try {

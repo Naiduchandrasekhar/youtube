@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { fetchMostPopularVideos } from "../Utils/constants";
 import { setAllVideos } from "../Utils/allVideosSlice";
 import Loader from "../Components/Loader";
+import CommentsContainer from "../Components/CommentsContainer";
 
 const WatchPage = () => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const WatchPage = () => {
       <div className="flex flex-col w-screen">
         <iframe height="650" src={`https://www.youtube.com/embed/${searchParam.get("v")}?si=RUcM18UgPoeCM2PV`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen aria-controls="true"></iframe>
         <div>
-          <h1 className="text-2xl font-bold my-2 px-3">9 Comments</h1>
+          <CommentsContainer />
         </div>
       </div>
       <div className="">
