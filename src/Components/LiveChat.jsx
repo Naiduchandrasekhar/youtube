@@ -30,12 +30,17 @@ const LiveChat = () => {
 
   // Auto-scroll the container to bottom on new messages
   useEffect(() => {
-    const container = messagesContainerRef.current
+  const container = messagesContainerRef.current;
+  if (!container) return;
 
-    if (container) {
-      container.scrollTop = container.scrollHeight; // scroll to bottom
-    }
-  }, [storeChatData])
+  // Distance from bottom
+  const isUserAtBottom = container.scrollHeight - container.scrollTop <= container.clientHeight + 50;
+
+  // Only auto-scroll if user is near the bottom
+  if (isUserAtBottom) {
+    container.scrollTop = container.scrollHeight;
+  }
+}, [storeChatData]);
 
   const handleSendMessage = () => {
     if (localMessage?.length === 0) return
@@ -44,6 +49,7 @@ const LiveChat = () => {
       comment: localMessage
     }
     dispatch(addMessage({ ...messageObject }))
+    setShowEmoji(false)
     setLocalMessage("")
   }
 
