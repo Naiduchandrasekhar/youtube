@@ -98,7 +98,7 @@ const SideBar = () => {
     { icon: shortsIcon, label: text.shorts },
     { icon: subscribtionIcon, label: text.subscriptions },
     { icon: userIcon, label: text.you },
-    {icon: youtubeLiveIcon, label: text.live}
+    {icon: youtubeLiveIcon, label: text.live, link: "/Live" }
   ];
 
   const yourItems = [text.history, text.playlists, text.watchLater, text.yourVideos, text.downloads];
