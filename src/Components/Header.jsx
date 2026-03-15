@@ -101,7 +101,7 @@ const Header = () => {
     >
       <div className="flex items-center gap-3">
         <img onClick={handleMenu} src={isDarkMode ? darkMenubar : hamburgerMenu} className="h-9 cursor-pointer" />
-        <img src={isDarkMode ? youtube_logo_dark : youtubeLogo} className="h-20 max-w-full" />
+        <img src={isDarkMode ? youtube_logo_dark : youtubeLogo} onClick={() => window.location.reload()} className="h-20 max-w-full cursor-pointer" />
       </div>
 
       <div>

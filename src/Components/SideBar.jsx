@@ -79,10 +79,11 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import homeIcon from "../assets/images/homeIcon.png";
+import homeIcon from "../assets/images/homeIcons.png";
 import shortsIcon from "../assets/images/shortsIcon.jpg";
 import subscribtionIcon from "../assets/images/subscribtion.png";
 import userIcon from "../assets/images/userIcon.png";
+import youtubeLiveIcon from "../assets/images/youtubeLiveIcon.png";
 import { sidebarText } from "../Utils/constants";
 
 const SideBar = () => {
@@ -97,6 +98,7 @@ const SideBar = () => {
     { icon: shortsIcon, label: text.shorts },
     { icon: subscribtionIcon, label: text.subscriptions },
     { icon: userIcon, label: text.you },
+    {icon: youtubeLiveIcon, label: text.live}
   ];
 
   const yourItems = [text.history, text.playlists, text.watchLater, text.yourVideos, text.downloads];
