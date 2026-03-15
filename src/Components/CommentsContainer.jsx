@@ -12,6 +12,9 @@ const CommentsContainer = () => {
         }))
     }
 
+    console.log(openReplies);
+    
+
     const CommentList = ({ comments }) => {
         return comments?.map((comment) => (
             <div key={comment?.id}>
@@ -34,7 +37,7 @@ const CommentsContainer = () => {
     return (
         <div>
             <h1 className="text-2xl font-bold my-2 px-3">{comments.length} Comments</h1>
-            <div className="flex flex-col gap-4 px-3">
+            <div className="flex flex-col gap-2 px-3">
                 <CommentList comments={comments} />
             </div>
         </div>

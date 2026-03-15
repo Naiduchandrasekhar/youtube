@@ -141,14 +141,14 @@ src
 ### Home Page
 ![alt text](image.png)
 
-*Add screenshot here*
-
 ### Search Suggestions
 ![alt text](image-2.png)
 
 ### Watch Page
 ![alt text](image-1.png)
 
+### Comments
+![alt text](image-3.png)
 ---
 
 # 🎯 Key Learnings
@@ -158,16 +158,16 @@ src
 * Implementing **debouncing and caching techniques**
 * Optimizing **API calls and rendering performance**
 * Structuring **large React projects**
+* Swicth Mode **switch to either dark mode or light mode**
+* Comments **video comments system**
 
 ---
 
 # 🔮 Future Improvements
 
-* Add **video comments system**
 * Implement **related videos recommendations**
 * Add **user authentication**
 * Improve **UI animations and skeleton loaders**
-* Add **dark mode**
 
 ---
 

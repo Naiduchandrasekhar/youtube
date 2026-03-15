@@ -5,6 +5,8 @@ import Body from './Components/Body';
 import WatchPage from './Pages/WatchPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainContainer from './Components/MainContainer';
+import Live from './Pages/Live';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -21,7 +23,12 @@ function App() {
       {
       path: "/watch",
       element: <WatchPage />
-    }]
+    },
+    {
+      path:"/live",
+      element: <Live />
+    }
+  ]
   },])
 
   return (
@@ -29,7 +36,7 @@ function App() {
       className={`h-screen overflow-hidden transition-colors duration-300 
       ${isDarkMode ? "bg-[#0f0f0f] text-white" : "bg-white text-black"}`}
     >
-
+      <ToastContainer newestOnTop />
       {/* Fixed header */}
       {/* <Header /> */}
 
