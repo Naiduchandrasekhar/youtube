@@ -14,7 +14,6 @@ import { cacheResults } from "../Utils/searchSlice"
 const Header = () => {
   const isDarkMode = useSelector((store) => store?.mode?.isDarkMode);
   const searchCache = useSelector((store) => store?.search)
-  console.log(searchCache);
 
   const dispatch = useDispatch()
   const suggestRef = useRef(null)
@@ -43,7 +42,7 @@ const Header = () => {
       if (data?.[1]) {
         setSearchResults(data[1]);
         console.log("hjh");
-        
+
         dispatch(cacheResults({ [searchTerm]: data[1] }));
       }
     } catch (error) {
@@ -101,7 +100,7 @@ const Header = () => {
         }`}
     >
       <div className="flex items-center gap-3">
-        <img onClick={handleMenu} src={isDarkMode ? darkMenubar: hamburgerMenu} className="h-9 cursor-pointer" />
+        <img onClick={handleMenu} src={isDarkMode ? darkMenubar : hamburgerMenu} className="h-9 cursor-pointer" />
         <img src={isDarkMode ? youtube_logo_dark : youtubeLogo} className="h-20 max-w-full" />
       </div>
 

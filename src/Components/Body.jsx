@@ -4,7 +4,7 @@ import Header from "./Header"
 
 const Body = () => {
     return (
-        <div className="flex flex-row pt-24 h-full">
+        <div className="flex flex-row pt-24 h-full body">
             <SideBar />
             
 

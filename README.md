@@ -149,6 +149,12 @@ src
 
 ### Comments
 ![alt text](image-3.png)
+
+### Live Chat
+![alt text](image-4.png)
+
+### Dark/Light Mode
+![alt text](image-5.png)
 ---
 
 # 🎯 Key Learnings
@@ -160,6 +166,7 @@ src
 * Structuring **large React projects**
 * Swicth Mode **switch to either dark mode or light mode**
 * Comments **video comments system**
+* Live Chat **You can Chat in the Live Channels**
 
 ---
 

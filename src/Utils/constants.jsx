@@ -1,6 +1,13 @@
 const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
 export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${youtubeKey}`
 
+// export const YOUTUBE_MULTIPLE_POPULAR_API =
+//   `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=telugu&type=video&maxResults=30&regionCode=IN&key=${youtubeKey}`;
+
+export const YOUTUBE_MULTIPLE_POPULAR_API =
+  `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=telugu&type=video&eventType=live&maxResults=30&regionCode=IN&relevanceLanguage=te&key=${youtubeKey}`;
+
+
 export const videoTitleButtons = {
   en: [
     "All", "Telugu Cinema", "Music", "News", "Podcasts",
@@ -260,6 +267,66 @@ export const comments = [
     ]
   }
 ];
+
+
+export const chatData = [
+{ name: "Amit", comment: "This is really helpful!" },
+{ name: "Divya", comment: "Hello from Bangalore!" },
+{ name: "Rakesh", comment: "Nice explanation!" },
+{ name: "Pooja", comment: "Learning a lot today." },
+{ name: "Nikhil", comment: "Great stream 🔥" },
+{ name: "Kavya", comment: "Can you share the repo?" },
+{ name: "Deepak", comment: "Watching while coding 😄" },
+{ name: "Shreya", comment: "This is my favorite topic!" },
+{ name: "Manish", comment: "Amazing content!" },
+{ name: "Isha", comment: "Please explain hooks again." },
+
+{ name: "Tarun", comment: "Hello chat!" },
+{ name: "Neha", comment: "Very clear explanation." },
+{ name: "Sanjay", comment: "Subscribing right now!" },
+{ name: "Varun", comment: "Love this stream." },
+{ name: "Ritu", comment: "Can we see a demo?" },
+{ name: "Aditya", comment: "Nice project idea." },
+{ name: "Asha", comment: "Good evening everyone!" },
+{ name: "Prakash", comment: "This helps my interview prep." },
+{ name: "Komal", comment: "Thanks for sharing!" },
+{ name: "Vivek", comment: "Super informative." },
+
+{ name: "Harsha", comment: "Watching from Chennai." },
+{ name: "Bhavna", comment: "Great explanation 👍" },
+{ name: "Gaurav", comment: "This is so cool!" },
+{ name: "Tanya", comment: "Chat is so active today." },
+{ name: "Lokesh", comment: "Nice UI design." },
+{ name: "Siddhi", comment: "Can you repeat that step?" },
+{ name: "Abhishek", comment: "React is awesome!" },
+{ name: "Madhavi", comment: "Good learning session." },
+{ name: "Yash", comment: "Thanks for the tips!" },
+{ name: "Ankit", comment: "Very useful content." },
+
+{ name: "Riya", comment: "Hello from Mumbai!" },
+{ name: "Sagar", comment: "This chat is fun 😂" },
+{ name: "Karthik", comment: "Waiting for next topic." },
+{ name: "Nisha", comment: "Good explanation!" },
+{ name: "Omkar", comment: "Trying this in my project." },
+{ name: "Aarav", comment: "Nice work!" },
+{ name: "Sonia", comment: "Can you share resources?" },
+{ name: "Dev", comment: "Learning something new today." },
+{ name: "Pavan", comment: "Hello from Hyderabad!" },
+{ name: "Simran", comment: "Awesome stream!" },
+
+{ name: "Chirag", comment: "Really interesting." },
+{ name: "Lavanya", comment: "Thanks for the session!" },
+{ name: "Rohan", comment: "Great live chat demo." },
+{ name: "Kunal", comment: "This will help beginners." },
+{ name: "Anu", comment: "Good vibes here ✨" },
+{ name: "Jay", comment: "Love this explanation." },
+{ name: "Preeti", comment: "So easy to understand." },
+{ name: "Aravind", comment: "Very informative stream." },
+{ name: "Tejas", comment: "Keep going!" },
+{ name: "Monika", comment: "Nice coding session!" }
+];
+
+export const emojiList = ["😀","😄","😂","🥰","😎","😢","🤔","👍","🙏","🎉","💬","🔥","💖","🤯","🥳"];
 
 export const fetchMostPopularVideos = async () => {
   try {
