@@ -1,5 +1,7 @@
-const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
-export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${youtubeKey}`
+export const youtubeKey = import.meta.env.VITE_YOUTUBE_API_KEY;
+//export const YOUTUBE_MOST_POPULAR_API = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&videoCategoryId=${0}&key=${youtubeKey}`
+
+export const YOUTUBE_MOST_POPULAR_API = "https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=IN&"
 
 // export const YOUTUBE_MULTIPLE_POPULAR_API =
 //   `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=telugu&type=video&maxResults=30&regionCode=IN&key=${youtubeKey}`;
@@ -8,50 +10,119 @@ export const YOUTUBE_MULTIPLE_POPULAR_API =
   `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=telugu&type=video&eventType=live&maxResults=30&regionCode=IN&relevanceLanguage=te&key=${youtubeKey}`;
 
 
+// export const videoTitleButtons = {
+//   en: [
+//     "All", "Telugu Cinema", "Music", "News", "Podcasts",
+//     "Gaming", "Live", "Web Development", "Computer Programming",
+//     "Gadgets", "React Routers", "JavaScript", "Python",
+//     "AI & Machine Learning", "Data Science", "Cybersecurity",
+//     "Mobile Development", "Frontend Development", "Backend Development",
+//     "DevOps", "Cloud Computing", "Tech Reviews", "Startups",
+//     "Entrepreneurship", "Stock Market", "Personal Finance",
+//     "Fitness", "Health", "Travel", "Food", "Vlogs",
+//     "Comedy", "Movies", "Cricket", "Football",
+//     "Motivation", "Education", "Tutorials",
+//     "Short Films", "Documentaries"
+//   ],
+
+//   hi: [
+//     "सभी", "तेलुगु सिनेमा", "संगीत", "समाचार", "पॉडकास्ट",
+//     "गेमिंग", "लाइव", "वेब डेवलपमेंट", "कंप्यूटर प्रोग्रामिंग",
+//     "गैजेट्स", "रिएक्ट राउटर", "जावास्क्रिप्ट", "पायथन",
+//     "एआई और मशीन लर्निंग", "डेटा साइंस", "साइबर सुरक्षा",
+//     "मोबाइल डेवलपेंट", "फ्रंटएंड डेवलपमेंट", "बैकएंड डेवलपमेंट",
+//     "डेवऑप्स", "क्लाउड कंप्यूटिंग", "टेक रिव्यू", "स्टार्टअप्स",
+//     "उद्यमिता", "शेयर बाजार", "पर्सनल फाइनेंस",
+//     "फिटनेस", "स्वास्थ्य", "यात्रा", "भोजन", "व्लॉग्स",
+//     "कॉमेडी", "फिल्में", "क्रिकेट", "फुटबॉल",
+//     "प्रेरणा", "शिक्षा", "ट्यूटोरियल्स",
+//     "लघु फिल्में", "डॉक्यूमेंट्री"
+//   ],
+
+//   te: [
+//     "అన్నీ", "తెలుగు సినిమా", "సంగీతం", "వార్తలు", "పాడ్‌కాస్ట్‌లు",
+//     "గేమింగ్", "లైవ్", "వెబ్ డెవలప్మెంట్", "కంప్యూటర్ ప్రోగ్రామింగ్",
+//     "గాడ్జెట్లు", "రియాక్ట్ రౌటర్లు", "జావాస్క్రిప్ట్", "పైథాన్",
+//     "ఏఐ & మెషిన్ లెర్నింగ్", "డేటా సైన్స్", "సైబర్ సెక్యూరిటీ",
+//     "మొబైల్ డెవలప్మెంట్", "ఫ్రంట్ ఎండ్ డెవలప్మెంట్", "బ్యాక్ ఎండ్ డెవలప్మెంట్",
+//     "డెవ్‌ఒప్స్", "క్లౌడ్ కంప్యూటింగ్", "టెక్ రివ్యూలు", "స్టార్టప్స్",
+//     "ఉద్యమిత్వం", "స్టాక్ మార్కెట్", "పర్సనల్ ఫైనాన్స్",
+//     "ఫిట్‌నెస్", "ఆరోగ్యం", "ప్రయాణం", "ఆహారం", "వ్లాగ్స్",
+//     "కామెడీ", "సినిమాలు", "క్రికెట్", "ఫుట్‌బాల్",
+//     "మోటివేషన్", "విద్య", "ట్యుటోరియల్స్",
+//     "చిన్న చిత్రాలు", "డాక్యుమెంటరీలు"
+//   ]
+// };
+
+
 export const videoTitleButtons = {
   en: [
-    "All", "Telugu Cinema", "Music", "News", "Podcasts",
-    "Gaming", "Live", "Web Development", "Computer Programming",
-    "Gadgets", "React Routers", "JavaScript", "Python",
-    "AI & Machine Learning", "Data Science", "Cybersecurity",
-    "Mobile Development", "Frontend Development", "Backend Development",
-    "DevOps", "Cloud Computing", "Tech Reviews", "Startups",
-    "Entrepreneurship", "Stock Market", "Personal Finance",
-    "Fitness", "Health", "Travel", "Food", "Vlogs",
-    "Comedy", "Movies", "Cricket", "Football",
-    "Motivation", "Education", "Tutorials",
-    "Short Films", "Documentaries"
+    { name: "Music", code: 10 },
+    { name: "Gaming", code: 20 },
+    { name: "Sports", code: 17 },
+    { name: "News", code: 25 },
+    { name: "Entertainment", code: 24 },
+    { name: "Education", code: 27 },
+    { name: "Science & Technology", code: 28 },
+    { name: "Film & Animation", code: 1 },
+    { name: "Autos & Vehicles", code: 2 },
+    { name: "Comedy", code: 23 },
+    { name: "Cartoon", code: 1 },
+    { name: "TV Shows", code: 24 },
+    { name: "CID", code: 24 },
+    { name: "Web Series", code: 24 },
+    { name: "Movies", code: 1 },
+    { name: "Live", code: 24 },
+    { name: "Kids", code: 1 },
+    { name: "Vlogs", code: 22 },
+    { name: "Tech Reviews", code: 28 },
+    { name: "Motivation", code: 22 }
   ],
-
   hi: [
-    "सभी", "तेलुगु सिनेमा", "संगीत", "समाचार", "पॉडकास्ट",
-    "गेमिंग", "लाइव", "वेब डेवलपमेंट", "कंप्यूटर प्रोग्रामिंग",
-    "गैजेट्स", "रिएक्ट राउटर", "जावास्क्रिप्ट", "पायथन",
-    "एआई और मशीन लर्निंग", "डेटा साइंस", "साइबर सुरक्षा",
-    "मोबाइल डेवलपेंट", "फ्रंटएंड डेवलपमेंट", "बैकएंड डेवलपमेंट",
-    "डेवऑप्स", "क्लाउड कंप्यूटिंग", "टेक रिव्यू", "स्टार्टअप्स",
-    "उद्यमिता", "शेयर बाजार", "पर्सनल फाइनेंस",
-    "फिटनेस", "स्वास्थ्य", "यात्रा", "भोजन", "व्लॉग्स",
-    "कॉमेडी", "फिल्में", "क्रिकेट", "फुटबॉल",
-    "प्रेरणा", "शिक्षा", "ट्यूटोरियल्स",
-    "लघु फिल्में", "डॉक्यूमेंट्री"
+    { name: "संगीत", code: 10 },
+    { name: "गेमिंग", code: 20 },
+    { name: "खेल", code: 17 },
+    { name: "समाचार", code: 25 },
+    { name: "मनोरंजन", code: 24 },
+    { name: "शिक्षा", code: 27 },
+    { name: "विज्ञान और प्रौद्योगिकी", code: 28 },
+    { name: "फिल्म और एनिमेशन", code: 1 },
+    { name: "ऑटो और वाहन", code: 2 },
+    { name: "कॉमेडी", code: 23 },
+    { name: "कार्टून", code: 1 },
+    { name: "टीवी शो", code: 24 },
+    { name: "CID", code: 24 },
+    { name: "वेब सीरीज", code: 24 },
+    { name: "फिल्में", code: 1 },
+    { name: "लाइव", code: 24 },
+    { name: "बच्चे", code: 1 },
+    { name: "व्लॉग्स", code: 22 },
+    { name: "टेक रिव्यू", code: 28 },
+    { name: "प्रेरणा", code: 22 }
   ],
-
   te: [
-    "అన్నీ", "తెలుగు సినిమా", "సంగీతం", "వార్తలు", "పాడ్‌కాస్ట్‌లు",
-    "గేమింగ్", "లైవ్", "వెబ్ డెవలప్మెంట్", "కంప్యూటర్ ప్రోగ్రామింగ్",
-    "గాడ్జెట్లు", "రియాక్ట్ రౌటర్లు", "జావాస్క్రిప్ట్", "పైథాన్",
-    "ఏఐ & మెషిన్ లెర్నింగ్", "డేటా సైన్స్", "సైబర్ సెక్యూరిటీ",
-    "మొబైల్ డెవలప్మెంట్", "ఫ్రంట్ ఎండ్ డెవలప్మెంట్", "బ్యాక్ ఎండ్ డెవలప్మెంట్",
-    "డెవ్‌ఒప్స్", "క్లౌడ్ కంప్యూటింగ్", "టెక్ రివ్యూలు", "స్టార్టప్స్",
-    "ఉద్యమిత్వం", "స్టాక్ మార్కెట్", "పర్సనల్ ఫైనాన్స్",
-    "ఫిట్‌నెస్", "ఆరోగ్యం", "ప్రయాణం", "ఆహారం", "వ్లాగ్స్",
-    "కామెడీ", "సినిమాలు", "క్రికెట్", "ఫుట్‌బాల్",
-    "మోటివేషన్", "విద్య", "ట్యుటోరియల్స్",
-    "చిన్న చిత్రాలు", "డాక్యుమెంటరీలు"
+    { name: "సంగీతం", code: 10 },
+    { name: "గేమింగ్", code: 20 },
+    { name: "క్రీడలు", code: 17 },
+    { name: "వార్తలు", code: 25 },
+    { name: "మనోరంజన", code: 24 },
+    { name: "విద్య", code: 27 },
+    { name: "సైన్స్ & టెక్నాలజీ", code: 28 },
+    { name: "ఫిల్మ్ & యానిమేషన్", code: 1 },
+    { name: "ఆటోలు & వాహనాలు", code: 2 },
+    { name: "కామెడీ", code: 23 },
+    { name: "కార్టూన్", code: 1 },
+    { name: "టీవి షోలు", code: 24 },
+    { name: "CID", code: 24 },
+    { name: "వెబ్ సిరీస్", code: 24 },
+    { name: "సినిమాలు", code: 1 },
+    { name: "లైవ్", code: 24 },
+    { name: "కిడ్స్", code: 1 },
+    { name: "వ్లాగ్స్", code: 22 },
+    { name: "టెక్ రివ్యూస్", code: 28 },
+    { name: "మోటివేషన్", code: 22 }
   ]
 };
-
 
 export const sidebarText = {
   en: {
@@ -331,9 +402,10 @@ export const chatData = [
 
 export const emojiList = ["😀","😄","😂","🥰","😎","😢","🤔","👍","🙏","🎉","💬","🔥","💖","🤯","🥳"];
 
-export const fetchMostPopularVideos = async () => {
+export const fetchMostPopularVideos = async (videoCode) => {
   try {
-    const response = await fetch(YOUTUBE_MOST_POPULAR_API);
+    const url = `${YOUTUBE_MOST_POPULAR_API}videoCategoryId=${videoCode?.code}&key=${youtubeKey}`;
+    const response = await fetch(url);
 
     if (!response.ok) {
       console.error("Failed to fetch videos:", response.status, response.statusText);

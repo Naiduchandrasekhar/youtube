@@ -7,6 +7,13 @@ const allVideosSlice = createSlice({
     },
     reducers: {
         setAllVideos: (state, action) => {
+            state.videos = action.payload;
+            if (state.videos.length > 200) {
+                state.videos = state.videos.slice(state.videos.length - 150);
+            }
+        },
+        // Append more videos to the existing list (used for infinite scroll)
+        appendVideos: (state, action) => {
             state.videos = [...state.videos, ...action.payload];
             if (state.videos.length > 200) {
                 state.videos = state.videos.slice(state.videos.length - 150);
@@ -15,5 +22,5 @@ const allVideosSlice = createSlice({
     }
 })
 
-export const { setAllVideos } = allVideosSlice.actions;
+export const { setAllVideos, appendVideos } = allVideosSlice.actions;
 export default allVideosSlice.reducer;

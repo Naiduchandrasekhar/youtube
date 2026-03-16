@@ -110,7 +110,7 @@ const SideBar = () => {
 
   return (
     <div
-      className={`h-screen overflow-y-auto shadow-lg ${bgClass} 
+      className={`h-auto overflow-y-auto shadow-lg ${bgClass} 
       ${isMenuOpened ? "w-60 p-4" : "w-20 p-2"} transition-width duration-300`}
     >
       {/* Your Items Section */}

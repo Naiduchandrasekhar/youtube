@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const ButtonList = () => {
+const ButtonList = ({videoCode = {}, handleGetCode = () => {}}) => {
   const selectedLanguage = useSelector(
     (store) => store?.language?.selectedLanguage
   );
@@ -73,15 +73,16 @@ const ButtonList = () => {
         {videoTitleButtons?.[selectedLanguage]?.map(
           (title, index) => (
             <button
-              key={index}
+              key={title?.name}
               className={`m-1 font-medium rounded-2xl px-4 py-1.5 
               whitespace-nowrap shrink-0 transition-colors duration-300 border cursor-pointer
+              ${title?.code === videoCode?.code && title?.name === videoCode?.name  ? 'bg-neutral-500 text-white' :''}
               ${isDarkMode
                   ? "bg-[#272727] text-white border-gray-700 hover:bg-[#3a3a3a]"
                   : "bg-gray-100 text-black border-gray-200 hover:bg-gray-200"
                 }`}
             >
-              {title === "Live" ? <Link to="/Live">{title}</Link> : <span onClick={() => notify(title)}>{title}</span>}
+              {title?.name === "Live" ? <Link to="/Live">{title?.name}</Link> : <span onClick={() =>handleGetCode(title)}>{title?.name}</span>}
             </button>
           )
         )}

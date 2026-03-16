@@ -4,7 +4,7 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import VideoCard from "../Components/VideoCard";
 import { useEffect, useState } from "react";
 import { fetchMostPopularVideos } from "../Utils/constants";
-import { setAllVideos } from "../Utils/allVideosSlice";
+import { setAllVideos, appendVideos } from "../Utils/allVideosSlice";
 import Loader from "../Components/Loader";
 import CommentsContainer from "../Components/CommentsContainer";
 import LiveChat from "../Components/LiveChat";
@@ -24,7 +24,7 @@ const WatchPage = () => {
   const loadVideos = async () => {
     try {
       const newVideos = await fetchMostPopularVideos();
-      dispatch(setAllVideos([...videos, ...newVideos]));
+      dispatch(appendVideos(newVideos));
     } catch (error) {
       console.error("Error loading videos:", error);
     }
