@@ -155,6 +155,9 @@ src
 
 ### Dark/Light Mode
 ![alt text](image-5.png)
+
+### Subsciptions Page
+![alt text](image-6.png)
 ---
 
 # 🎯 Key Learnings

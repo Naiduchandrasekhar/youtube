@@ -97,7 +97,7 @@ const SideBar = () => {
   const menuItems = [
     { icon: homeIcon, label: text.home, link: "/" },
     { icon: shortsIcon, label: text.shorts,link: "/" },
-    { icon: subscribtionIcon, label: text.subscriptions },
+    { icon: subscribtionIcon, label: text.subscriptions, link: "/Subscriptions" },
     { icon: userIcon, label: text.you },
     {icon: youtubeLiveIcon, label: text.live, link: "/Live" }
   ];

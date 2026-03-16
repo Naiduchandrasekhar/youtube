@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainContainer from './Components/MainContainer';
 import Live from './Pages/Live';
 import { ToastContainer } from 'react-toastify';
+import Subscriptions from './Components/Subscriptions';
 
 function App() {
 
@@ -27,6 +28,10 @@ function App() {
     {
       path:"/live",
       element: <Live />
+    },
+    {
+      path:"/Subscriptions",
+      element: <Subscriptions />
     }
   ]
   },])
