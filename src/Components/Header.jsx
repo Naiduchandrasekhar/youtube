@@ -32,23 +32,42 @@ const Header = () => {
     dispatch(changeLanguage(currentLanguage))
   }
 
-  const callSearchAPI = async (searchTerm) => {
-    const response = await fetch(
-      `https://corsproxy.io/?http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchTerm}`
-    );
+  // const callSearchAPI = async (searchTerm) => {
+  //   const response = await fetch(
+  //     `https://corsproxy.io/?http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchTerm}`
+  //   );
 
-    const data = await response.json();
-    try {
+  //   const data = await response.json();
+  //   try {
+  //     if (data?.[1]) {
+  //       setSearchResults(data[1]);
+  //       console.log("hjh");
+
+  //       dispatch(cacheResults({ [searchTerm]: data[1] }));
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching search results:", error);
+  //   }
+  // }
+
+  const callSearchAPI = (searchTerm) => {
+    const script = document.createElement("script");
+
+    const callbackName = "youtubeSuggestionCallback";
+
+    window[callbackName] = (data) => {
       if (data?.[1]) {
         setSearchResults(data[1]);
-        console.log("hjh");
-
         dispatch(cacheResults({ [searchTerm]: data[1] }));
       }
-    } catch (error) {
-      console.error("Error fetching search results:", error);
-    }
-  }
+
+      document.body.removeChild(script);
+    };
+
+    script.src = `https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=${searchTerm}&callback=${callbackName}`;
+
+    document.body.appendChild(script);
+  };
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
