@@ -1,12 +1,17 @@
 import { useState } from "react"
 import ButtonList from "./ButtonList"
 import VideoContainer from "./VideoContainer"
+import { useDispatch, useSelector } from "react-redux"
+import { addVideoCodeDetails } from "../Utils/videoCodeSlice"
 
 const MainContainer = () => {
-  const [videoCode, setVideoCode] = useState({ name: "Nthg", code: 0 })
+  // const [videoCode, setVideoCode] = useState({ name: "Nthg", code: 0 })
+  const dispatch = useDispatch()
+  const videoCode = useSelector((store) => store?.videoCode)
   
-  const handleGetCode = (videoCode) => {
-   setVideoCode(videoCode)
+  const handleGetCode = (videoCodeDetails) => {
+  //  setVideoCode(videoCodeDetails)
+   dispatch(addVideoCodeDetails(videoCodeDetails))
   }
   
   return (

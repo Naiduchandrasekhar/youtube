@@ -18,12 +18,25 @@ const VideoContainer = ({videoCode}) => {
   const loadMoreTimerRef = useRef(null);
 
   const loadVideos = async (append = false) => {
-    const newVideos = await fetchMostPopularVideos(videoCode);
+    try {
+      const newVideos = await fetchMostPopularVideos(videoCode);
 
-    if (append) {
-      dispatch(appendVideos(newVideos));
-    } else {
-      dispatch(setAllVideos(newVideos));
+      if (!newVideos || newVideos.length === 0) {
+        setLoading(false);
+        setInitialLoad(false);
+        if (!append) dispatch(setAllVideos([]));
+        return;
+      }
+
+      if (append) {
+        dispatch(appendVideos(newVideos));
+      } else {
+        dispatch(setAllVideos(newVideos));
+      }
+    } catch (error) {
+      console.error("Error loading videos:", error);
+      setLoading(false);
+      setInitialLoad(false);
     }
   };
 
@@ -41,6 +54,7 @@ const VideoContainer = ({videoCode}) => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && !loading && !initialLoad) {
+        console.log("IntersectionObserver triggered: loading more videos");
         setLoading(true);
 
         loadMoreTimerRef.current = setTimeout(async () => {
@@ -59,11 +73,11 @@ const VideoContainer = ({videoCode}) => {
       observer.disconnect();
       if (loadMoreTimerRef.current) clearTimeout(loadMoreTimerRef.current);
     };
-  }, [loading, initialLoad]);
+  }, [initialLoad]);
 
   if (initialLoad) return <ShimmerLoader />;
-
-  console.log("videoCode", videoCode);
+  
+ if(videos?.length === 0) return <div className="font-bold text-center flex justify-center items-center h-full">No videos related to {videoCode?.name}</div>
   
   return (
     <div className="video-container h-full p-3 flex-wrap gap-3 flex justify-between items-center">

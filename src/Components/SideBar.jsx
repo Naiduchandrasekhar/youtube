@@ -76,7 +76,7 @@
 // export default SideBar
 
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import homeIcon from "../assets/images/homeIcons.png";
@@ -85,6 +85,7 @@ import subscribtionIcon from "../assets/images/subscribtion.png";
 import userIcon from "../assets/images/userIcon.png";
 import youtubeLiveIcon from "../assets/images/youtubeLiveIcon.png";
 import { sidebarText } from "../Utils/constants";
+import { addVideoCodeDetails } from "../Utils/videoCodeSlice";
 
 const SideBar = () => {
   const isMenuOpened = useSelector((store) => store?.app?.isMenuOpened);
@@ -95,7 +96,7 @@ const SideBar = () => {
 
   const menuItems = [
     { icon: homeIcon, label: text.home, link: "/" },
-    { icon: shortsIcon, label: text.shorts },
+    { icon: shortsIcon, label: text.shorts,link: "/" },
     { icon: subscribtionIcon, label: text.subscriptions },
     { icon: userIcon, label: text.you },
     {icon: youtubeLiveIcon, label: text.live, link: "/Live" }
@@ -107,6 +108,9 @@ const SideBar = () => {
   const bgClass = isDarkMode ? "bg-gray-900 text-gray-100" : "bg-white text-gray-900";
   const hoverClass = isDarkMode ? "hover:bg-gray-800" : "hover:bg-gray-200";
   const sectionTitleClass = isDarkMode ? "text-gray-400" : "text-gray-600";
+
+  console.log(menuItems);
+  const dispatch = useDispatch()
 
   return (
     <div
@@ -137,6 +141,15 @@ const SideBar = () => {
           {menuItems.map((item, idx) => (
             <Link key={idx} to={item.link || "#"}>
               <li
+                onClick={() => {
+                  if (item.label === "Shorts") {
+                    const details = { name: "Sports", code: 17 };
+                    dispatch(addVideoCodeDetails(details));
+                  }
+                  if (item.label === "Home") {
+                    dispatch(addVideoCodeDetails({ name: "Nthg", code: 0 },));
+                  }
+                }}
                 className={`flex items-center gap-4 px-2 py-2 rounded cursor-pointer transition ${hoverClass}`}
               >
                 <img

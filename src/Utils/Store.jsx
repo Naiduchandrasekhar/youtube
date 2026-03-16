@@ -5,6 +5,7 @@ import modeSlice from "./modeSlice";
 import allVideosSlice from "./allVideosSlice";
 import searchSlice from "./searchSlice";
 import chatSlice from "./chatSlice";
+import videoCodeSlice from "./videoCodeSlice"
 
 const store = configureStore({
   reducer:{
@@ -13,7 +14,8 @@ const store = configureStore({
     mode: modeSlice,
     allVideos: allVideosSlice,
     search: searchSlice,
-    chat: chatSlice
+    chat: chatSlice,
+    videoCode: videoCodeSlice
   }
 })
 
